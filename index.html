@@ -1,4 +1,37 @@
 <html>
+  <head>
+    <title>Acceleration Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for PhoneGap to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+        navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+    }
+
+    // onSuccess: Get a snapshot of the current acceleration
+    //
+    function onSuccess(acceleration) {
+        alert('Acceleration X: ' + acceleration.x + '\n' +
+              'Acceleration Y: ' + acceleration.y + '\n' +
+              'Acceleration Z: ' + acceleration.z + '\n' +
+              'Timestamp: '      + acceleration.timestamp + '\n');
+    }
+
+    // onError: Failed to get the acceleration
+    //
+    function onError() {
+        alert('onError!');
+    }
+
+    </script>
+  </head>
 <body>
 
 <div class='header'><h1>Home</h1></div>
@@ -11,5 +44,9 @@
 <script src="js/storage/memory-store.js"></script>
 <script src="js/main.js"></script>
 
-</body>
+  <body>
+    <h1>Example</h1>
+    <p>getCurrentAcceleration</p>
+  </body>
+
 </html>
